@@ -1,10 +1,8 @@
 /// <reference types="cypress" />
 
-const local = 'http://localhost:3000'
-
 describe('Cypress Basics', () => {
   it('visit', () => {
-    cy.visit(local)
+    cy.visitServer()
 
     cy.title().should('be.equal', 'Cy Playground')
     cy.title().should('contain', 'Cy').debug()
@@ -22,7 +20,7 @@ describe('Cypress Basics', () => {
 
 describe('Interact with elements', () => {
   it('click', () => {
-    cy.visit(local)
+    cy.visitServer()
 
     cy.get('#buttonBasic')
       .should('have.text', 'CLICK ME !')

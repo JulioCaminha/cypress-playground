@@ -4,15 +4,16 @@ import { format } from '../../src/components/shared/time';
 
 const delay = { delay: 100 }
 
-before(() => {
-  cy.visit('http://localhost:3000')
-})
-
-beforeEach(() => {
-  cy.reload();
-})
-
 describe('Time', () => {
+
+  before(() => {
+    cy.visitServer()
+  })
+
+  beforeEach(() => {
+    cy.reload();
+  })
+
   it('check time', () => {
     const time = format(new Date())
     cy.get('[cy-data=time-button]').click()

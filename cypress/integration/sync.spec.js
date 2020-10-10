@@ -5,7 +5,7 @@ const delay = { delay: 100 }
 describe('Delays...', () => {
 
   before(() => {
-    cy.visit('http://localhost:3000')
+    cy.visitServer()
   })
 
   beforeEach(() => {
