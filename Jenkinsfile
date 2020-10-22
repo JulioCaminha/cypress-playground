@@ -52,15 +52,12 @@ pipeline {
     }
     
     stage('Sonarqube analysis') {
-      environment {
-        scannerHome = tool 'SonarQubeScanner'
-      }
-      
-      steps {
-        withSonarQubeEnv('sonarqube') {
-          sh "${scannerHome}/bin/sonar-scanner"
-        }
-      }  
+        agent any
+          steps {
+            withSonarQubeEnv('sonarqube') {
+              sh "${tool("SonarQubeScanner")}/bin/sonar-scanner -Dsonar.projectKey='cypress-playground' -Dsonar.sources=. -Dsonar.host.url=http://host.docker.internal:9000 -Dsonar.login=4003b8a348162975802775f2bee2e6ab948854d6"
+            }
+          }
     }
   }
 
