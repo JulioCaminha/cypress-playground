@@ -53,7 +53,7 @@ pipeline {
     
     stage('Sonarqube analysis') {
       environment {
-        scannerHome = tool 'sonarqube'
+        scannerHome = tool 'SonarQubeScanner'
       }
       
       steps {
