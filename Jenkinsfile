@@ -52,9 +52,7 @@ pipeline {
     }
     
     stage('Sonarqube analysis') {
-      withSonarQubeEnv('sonarqube') {
-        sh 'sonar-scanner -Dsonar.projectKey=frontend -Dsonar.sources=. -Dsonar.host.url=http://192.168.2.160:9000 -Dsonar.login=8b40f8bd3d63d9d0e1b1c3732dd806fde72f66e0'
-      }
+      sh 'sonar-scanner -Dsonar.projectKey=frontend -Dsonar.sources=. -Dsonar.host.url=http://192.168.2.160:9000 -Dsonar.login=8b40f8bd3d63d9d0e1b1c3732dd806fde72f66e0'
     }
   }
 
